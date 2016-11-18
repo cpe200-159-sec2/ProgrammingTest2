@@ -12,6 +12,7 @@ public class Request implements IRequest {
             request.type = type;
             request.setStudentID(studentID);
             request.setCourseID(courseID);
+        //Check if there's nothing is empty then send information else return nothing
         if(request.studentID != null && request.getCourseID() != null){
             return request;
         }
@@ -20,7 +21,6 @@ public class Request implements IRequest {
 
     protected Request()
     {
-        //protect to not create new request without static IRequest
         throw new UnsupportedOperationException("Please override this method");
     }
 
