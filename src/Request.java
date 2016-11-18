@@ -46,6 +46,7 @@ public class Request implements IRequest {
         if(courseID != null){
             this.courseID = courseID;
 
+            
         }
        else throw new RuntimeException("CourseID =  null");
     }
