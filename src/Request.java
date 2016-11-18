@@ -3,8 +3,14 @@
  */
 public class Request implements IRequest {
 
+    private static String studentID;
+    private static String courseID;
+    private static int type;
+
     public static IRequest createRequest(int type, String studentID, String courseID) {
-        return null;
+        Request.studentID = studentID;
+        Request.courseID = courseID;
+        Request.type = type;
     }
 
     protected Request()
@@ -14,26 +20,31 @@ public class Request implements IRequest {
 
     @Override
     public String getStudentID() {
-        return null;
+        return studentID;
     }
 
     @Override
     public String setStudentID(String studentID) {
-        return null;
+        if (null != studentID){
+            this.studentID = studentID;
+            return studentID;
+        }
     }
 
     @Override
     public String getCourseID() {
-        return null;
+        return courseID;
     }
 
     @Override
     public void setCourseID(String courseID) {
-
+        if (null != courseID){
+            this.courseID = courseID;
+        }
     }
 
     @Override
     public int getRequestType() {
-        return 0;
+        return type;
     }
 }
