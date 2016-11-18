@@ -10,4 +10,5 @@ public interface IRequest {
     public String getCourseID();
     public void setCourseID(String courseID);
     public int getRequestType();
+    public int setType(int type);
 }
