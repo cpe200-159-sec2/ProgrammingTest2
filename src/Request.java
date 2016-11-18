@@ -7,17 +7,13 @@ public class Request implements IRequest {
     private static String courseID;
 
     public static IRequest createRequest(int type, String studentID, String courseID) {
-        //create a paper for send to registration;
-        Registration paper = new Registration();
         //Fill information
-        Request.type = type;
-        Request.studentID = studentID;
-        Request.courseID = courseID;
-        //Check type
-        if(type == REQUEST_ADD){
-            //paper.add(request);
-        }else if(type == REQUEST_DROP){
-            //paper.drop(request);
+        Request request = new Request();
+            request.type = type;
+            request.setStudentID(studentID);
+            request.setCourseID(courseID);
+        if(request.studentID != null && request.getCourseID() != null){
+            return request;
         }
         return null;
     }
@@ -25,8 +21,6 @@ public class Request implements IRequest {
     protected Request()
     {
         //protect to not create new request without static IRequest
-        //if request is Add -> shouldn't create Drop.
-        //if request is Drop -> shouldn't create Add.
         throw new UnsupportedOperationException("Please override this method");
     }
 

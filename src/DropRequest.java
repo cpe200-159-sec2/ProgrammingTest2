@@ -1,5 +1,6 @@
 public class DropRequest extends Request {
     private DropRequest() {
-        createRequest(REQUEST_DROP,getStudentID(),getCourseID());
+        IRequest request = createRequest(REQUEST_DROP,getStudentID(),getCourseID());
+        new Registration().drop(request);
     }
 }
