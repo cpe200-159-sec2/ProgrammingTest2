@@ -1,4 +1,5 @@
 public class DropRequest extends Request {
-    private DropRequest() {
+    public DropRequest(String studentID,String courseID) {
+        createRequest(REQUEST_DROP,studentID,courseID);
     }
 }

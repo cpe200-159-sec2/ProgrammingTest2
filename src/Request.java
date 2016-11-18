@@ -2,9 +2,17 @@
  * Created by pruet on 18/11/2559.
  */
 public class Request implements IRequest {
+    private  int type;
+    private  String studentID,courseID;
+
 
     public static IRequest createRequest(int type, String studentID, String courseID) {
-        return null;
+        IRequest x = new Request();
+        x.setStudentID(studentID);
+        x.setCourseID(courseID);
+        x.setType(type);
+       return x;
+
     }
 
     protected Request()
@@ -14,26 +22,45 @@ public class Request implements IRequest {
 
     @Override
     public String getStudentID() {
-        return null;
+        return studentID;
+
     }
 
     @Override
     public String setStudentID(String studentID) {
-        return null;
+        if(studentID !=null) {
+            this.studentID =studentID;
+            return studentID;
+        }
+       throw new RuntimeException("studentID = null");
+
     }
 
     @Override
     public String getCourseID() {
-        return null;
+        return courseID;
     }
 
     @Override
     public void setCourseID(String courseID) {
+        if(courseID != null){
+            this.courseID = courseID;
 
+            
+        }
+       else throw new RuntimeException("CourseID =  null");
     }
 
     @Override
     public int getRequestType() {
-        return 0;
+        return type;
     }
+
+    @Override
+    public int setType(int type) {
+        if(type ==1 || type ==2)
+            return type;
+        else   throw new RuntimeException("Error type");
+    }
+
 }
