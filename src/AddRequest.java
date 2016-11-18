@@ -1,5 +1,7 @@
 public class AddRequest extends Request {
-    private AddRequest() {
+
+    private AddRequest(String SID,String CID) {
+        createRequest(REQUEST_ADD,SID,CID);
     }
 }
 
