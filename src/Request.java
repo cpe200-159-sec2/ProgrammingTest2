@@ -36,8 +36,9 @@ public class Request implements IRequest {
             System.out.println("Empty studentID");
             return null;
         }else{
+            String oldID = this.studentID;
             this.studentID = studentID;
-            return studentID;
+            return oldID;
         }
     }
 

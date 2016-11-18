@@ -1,6 +1,6 @@
 public class AddRequest extends Request {
-    private AddRequest() {
-        IRequest request = createRequest(REQUEST_ADD,getStudentID(),getCourseID());
+    private AddRequest(String studentID, String courseID) {
+        IRequest request = createRequest(REQUEST_ADD,studentID,courseID);
         new Registration().add(request);
     }
 }
