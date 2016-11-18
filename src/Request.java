@@ -7,16 +7,17 @@ public class Request implements IRequest {
     private static String courseID;
 
     public static IRequest createRequest(int type, String studentID, String courseID) {
-        //Fill information
-        Request request = new Request();
-            request.type = type;
-            request.setStudentID(studentID);
-            request.setCourseID(courseID);
-        //Check if there's nothing is empty then send information else return nothing
-        if(request.studentID != null && request.getCourseID() != null){
-            return request;
+        //Check if there are nothing empty then send information else return exception
+        if(studentID != null && courseID != null){
+            //Fill information
+            Request request = new Request();
+                request.type = type;
+                request.setStudentID(studentID);
+                request.setCourseID(courseID);
+                return request;
+        }else{
+            throw new RuntimeException("Incorrect information.");
         }
-        return null;
     }
 
     protected Request()
@@ -33,8 +34,7 @@ public class Request implements IRequest {
     public String setStudentID(String studentID) {
         //Check if it's empty
         if(studentID == null){
-            System.out.println("Empty studentID");
-            return null;
+            throw new RuntimeException("Empty studentID.");
         }else{
             String oldID = this.studentID;
             this.studentID = studentID;
