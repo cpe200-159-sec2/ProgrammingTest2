@@ -11,7 +11,7 @@ public class Request implements IRequest {
         Request.studentID = studentID;
         Request.courseID = courseID;
         Request.type = type;
-        throw new RuntimeException("XXX");
+        throw new RuntimeException("xxxxxxxx");
     }
 
     protected Request()
