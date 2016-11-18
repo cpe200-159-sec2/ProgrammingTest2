@@ -16,7 +16,7 @@ public class Request implements IRequest {
         if(request.studentID != null && request.getCourseID() != null){
             return request;
         }
-        return null;
+        throw new RuntimeException("Incorrect information.");
     }
 
     protected Request()
