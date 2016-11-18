@@ -7,7 +7,7 @@ public class Request implements IRequest {
     private static String courseID;
 
     public static IRequest createRequest(int type, String studentID, String courseID) {
-        //Check if there's nothing then send information else return nothing
+        //Check if there are nothing empty then send information else return exception
         if(studentID != null && courseID != null){
             //Fill information
             Request request = new Request();
