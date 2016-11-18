@@ -11,6 +11,7 @@ public class Request implements IRequest {
         Request.studentID = studentID;
         Request.courseID = courseID;
         Request.type = type;
+        throw new RuntimeException("xxxxxxxx");
     }
 
     protected Request()
@@ -29,6 +30,7 @@ public class Request implements IRequest {
             this.studentID = studentID;
             return studentID;
         }
+       throw new RuntimeException("XXX");
     }
 
     @Override
