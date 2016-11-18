@@ -2,11 +2,13 @@
  * Created by pruet on 18/11/2559.
  */
 public class Request implements IRequest {
+
     private int type;           // 1 is Add , 2 is Drop
     private String studentID;
     private String courseID;
 
     public static IRequest createRequest(int type, String studentID, String courseID) {
+        IRequest request;
         if(type == REQUEST_ADD){
 
         }else if(type == REQUEST_DROP){
@@ -18,6 +20,8 @@ public class Request implements IRequest {
     protected Request()
     {
         //protect to not create new request without static IRequest
+        //if request is add -> shouldn't create drop.
+        //if request is drop -> shouldn't create add.
         throw new UnsupportedOperationException("Please override this method");
     }
 
@@ -28,16 +32,13 @@ public class Request implements IRequest {
 
     @Override
     public String setStudentID(String studentID) {
-        String regex = "5+[0-9][0-9]{0,9}"; //ex 580610615
+        //Check if it's empty
         if(studentID == null){
+            System.out.println("Empty studentID");
             return null;
         }else{
-            if(studentID.matches(regex)){
-                throw new RuntimeException("Please enter corrected studentID.");
-            }else{
-                this.studentID = studentID;
-                return studentID;
-            }
+            this.studentID = studentID;
+            return studentID;
         }
     }
 
@@ -48,15 +49,11 @@ public class Request implements IRequest {
 
     @Override
     public void setCourseID(String courseID) {
-        String regex = "[0-9]{3,6}";    //ex: 001201
+        //Check if it's empty
         if(courseID == null){
             throw new RuntimeException("Empty courseID.");
         }else{
-            if(courseID.matches(regex)){
-                throw new RuntimeException("Please enter corrected courseID.");
-            }else{
-                this.courseID = courseID;
-            }
+            this.courseID = courseID;
         }
     }
 
